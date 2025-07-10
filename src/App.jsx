@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import volvoV40 from "./assets/volvo-v40.png";
+import CarComparison from "./CarComparison";
 
 const cars = [
   {
@@ -6,19 +8,15 @@ const cars = [
     brand: "Volvo",
     model: "V40",
     length_mm: 4369,
-    width_mm: 1802,
-    height_mm: 1458,
-    image_url: "https://www.carsized.com/img/volvo-v40-2012.png"
+    image_url: volvoV40,
   },
   {
-    id: 2,
-    brand: "Audi",
-    model: "A3 Sedan",
-    length_mm: 4495,
-    width_mm: 1816,
-    height_mm: 1425,
-    image_url: "https://www.carsized.com/img/audi-a3-sedan-2021.png"
-  }
+    id: 3,
+    brand: "BMW",
+    model: "3 Series",
+    length_mm: 4709,
+    image_url: "https://www.carsized.com/img/bmw-3-series-2019.png",
+  },
 ];
 
 export default function App() {
@@ -26,12 +24,12 @@ export default function App() {
   const [car2, setCar2] = useState(null);
 
   return (
-    <div style={{ padding: 24, fontFamily: 'sans-serif' }}>
-      <h1>Araba Boyutu Karşılaştırma</h1>
-      <div style={{ display: 'flex', gap: 16, marginBottom: 24 }}>
+    <div style={{ padding: 32, fontFamily: "sans-serif" }}>
+      <h1>Araba Boyutu Karşılaştır</h1>
+      <div style={{ display: "flex", gap: 16, marginBottom: 24 }}>
         <select onChange={(e) => setCar1(JSON.parse(e.target.value))}>
           <option>Araba 1 Seçin</option>
-          {cars.map(car => (
+          {cars.map((car) => (
             <option key={car.id} value={JSON.stringify(car)}>
               {car.brand} {car.model}
             </option>
@@ -39,7 +37,7 @@ export default function App() {
         </select>
         <select onChange={(e) => setCar2(JSON.parse(e.target.value))}>
           <option>Araba 2 Seçin</option>
-          {cars.map(car => (
+          {cars.map((car) => (
             <option key={car.id} value={JSON.stringify(car)}>
               {car.brand} {car.model}
             </option>
@@ -47,19 +45,7 @@ export default function App() {
         </select>
       </div>
 
-      {car1 && car2 && (
-        <div style={{ display: 'flex', justifyContent: 'space-around' }}>
-          {[car1, car2].map((car, idx) => (
-            <div key={idx} style={{ textAlign: 'center' }}>
-              <img src={car.image_url} alt={car.model} style={{ maxHeight: 150 }} />
-              <h3>{car.brand} {car.model}</h3>
-              <p>Uzunluk: {car.length_mm} mm</p>
-              <p>Genişlik: {car.width_mm} mm</p>
-              <p>Yükseklik: {car.height_mm} mm</p>
-            </div>
-          ))}
-        </div>
-      )}
+      <CarComparison car1={car1} car2={car2} />
     </div>
   );
 }
