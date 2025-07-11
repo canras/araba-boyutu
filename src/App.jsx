@@ -1,5 +1,10 @@
 import React, { useState } from "react";
-import volvoV40 from "./assets/volvo-v40.png";
+
+import volvoFront from "./assets/volvo-v40-front.png";
+import volvoSide from "./assets/volvo-v40-side.png";
+import bmwFront from "./assets/bmw-3-front.png";
+import bmwSide from "./assets/bmw-3-side.png";
+
 import CarComparison from "./CarComparison";
 
 const cars = [
@@ -8,14 +13,20 @@ const cars = [
     brand: "Volvo",
     model: "V40",
     length_mm: 4369,
-    image_url: volvoV40,
+    width_mm: 1802,
+    height_mm: 1458,
+    front_image: volvoFront,
+    side_image: volvoSide,
   },
   {
-    id: 3,
+    id: 2,
     brand: "BMW",
     model: "3 Series",
     length_mm: 4709,
-    image_url: "https://www.carsized.com/img/bmw-3-series-2019.png",
+    width_mm: 1827,
+    height_mm: 1435,
+    front_image: bmwFront,
+    side_image: bmwSide,
   },
 ];
 
