@@ -1,0 +1,232 @@
+/* ====== Temel Ayarlar ====== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+.dark {
+  background: radial-gradient(circle at top, #181a1f, #0c0d11);
+  color: #f0f0f0;
+}
+
+.light {
+  background: linear-gradient(to bottom, #f5f6fa, #dcdde1);
+  color: #222;
+}
+
+/* ====== Tema Geçiş Düğmesi ====== */
+
+.theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 999;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 48px;
+  height: 24px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0;
+  right: 0; bottom: 0;
+  background-color: #999;
+  border-radius: 24px;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  border-radius: 50%;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #4f9ef7;
+}
+
+input:checked + .slider:before {
+  transform: translateX(24px);
+}
+
+/* ====== Sayfa Yapısı ====== */
+
+.app {
+  position: relative;
+  padding-top: 100px;
+}
+
+.sticky-logo {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  height: 70px;
+  z-index: 1000;
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.15));
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  border-radius: 12px;
+  backdrop-filter: blur(8px);
+  background-color: rgba(255, 255, 255, 0.04);
+}
+
+/* ====== Başlık & Seçiciler ====== */
+
+.title {
+  text-align: center;
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  letter-spacing: 1px;
+}
+
+.selectors {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 36px;
+  flex-wrap: wrap;
+}
+
+select {
+  padding: 10px 14px;
+  font-size: 15px;
+  border-radius: 6px;
+  border: 1px solid #555;
+  background-color: #1e1f23;
+  color: #fff;
+  min-width: 180px;
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.05);
+  transition: 0.2s ease;
+}
+
+select:hover {
+  border-color: #4f9ef7;
+  box-shadow: 0 0 10px rgba(79, 158, 247, 0.3);
+}
+
+/* ====== Araç Karşılaştırma ====== */
+
+.section-title {
+  font-size: 20px;
+  text-align: center;
+  margin: 32px 0 20px;
+  font-weight: 600;
+}
+
+.comparison {
+  text-align: center;
+}
+
+.car-row {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: nowrap;
+  align-items: flex-end;
+}
+
+.car-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(4px);
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.02);
+  transition: 0.3s ease;
+}
+
+.car-side-row {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: nowrap;
+  align-items: flex-end;
+}
+
+.side-container {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  padding: 16px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(4px);
+}
+
+/* Cetvel & Ölçüler */
+
+.ruler {
+  border-top: 2px dashed #888;
+  margin-top: 6px;
+  font-size: 12px;
+  text-align: right;
+  color: #ccc;
+}
+
+.label {
+  margin-top: 6px;
+  font-weight: 500;
+  font-size: 13px;
+  color: #eee;
+}
+
+.height-bar {
+  width: 2px;
+  background-color: #ccc;
+  position: relative;
+}
+
+.height-bar span {
+  position: absolute;
+  top: -20px;
+  left: -10px;
+  font-size: 11px;
+  color: #ccc;
+}
+
+/* Animasyonlar */
+
+.fade-in {
+  animation: fadein 0.6s ease;
+}
+
+@keyframes fadein {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.warning {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 16px;
+  color: #f33;
+}
