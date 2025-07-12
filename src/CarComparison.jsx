@@ -1,12 +1,19 @@
-import React from "react";
+import React, { useRef, useEffect, useState } from "react";
 import "./App.css";
 
-// Yeni daha kompakt boyutlar:
 const SCALE_WIDTH = 0.35;
 const SCALE_LENGTH = 0.18;
-const SCALE_HEIGHT = 0.75;
 
 const CarComparison = ({ car1, car2 }) => {
+  const [heights, setHeights] = useState([null, null]);
+
+  const refs = [useRef(null), useRef(null)];
+
+  useEffect(() => {
+    const newHeights = refs.map(ref => ref.current?.clientHeight || 0);
+    setHeights(newHeights);
+  }, [car1, car2]);
+
   if (!car1 || !car2) return <p className="warning">Lütfen iki araba seçin.</p>;
 
   return (
@@ -30,21 +37,22 @@ const CarComparison = ({ car1, car2 }) => {
 
       <h2 className="section-title">Uzunluk ve Yükseklik Karşılaştırması</h2>
       <div className="car-side-row">
-        {[car1, car2].map((car) => (
+        {[car1, car2].map((car, index) => (
           <div className="side-container fade-in" key={car.id}>
             <div
               className="height-bar"
-              style={{ height: car.height_mm * SCALE_HEIGHT }}
+              style={{ height: heights[index] }}
             >
               <span>{car.height_mm} mm</span>
             </div>
             <div>
               <img
+                ref={refs[index]}
                 src={car.side_image}
                 alt="side"
                 style={{
                   width: car.length_mm * SCALE_LENGTH,
-                  height: car.height_mm * SCALE_HEIGHT,
+                  height: "auto",
                 }}
               />
               <div
