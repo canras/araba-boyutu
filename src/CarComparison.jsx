@@ -1,9 +1,10 @@
 import React from "react";
 import "./App.css";
 
+// Yeni daha kompakt boyutlar:
 const SCALE_WIDTH = 0.35;
-const SCALE_LENGTH = 0.22;
-const SCALE_HEIGHT = 0.9;
+const SCALE_LENGTH = 0.18;
+const SCALE_HEIGHT = 0.75;
 
 const CarComparison = ({ car1, car2 }) => {
   if (!car1 || !car2) return <p className="warning">Lütfen iki araba seçin.</p>;
