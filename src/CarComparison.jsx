@@ -21,7 +21,6 @@ const CarComparison = ({ car1, car2 }) => {
 
   return (
     <div className="comparison">
-      {/* ====== Genişlik Karşılaştırması ====== */}
       <h2 className="section-title">Genişlik Karşılaştırması</h2>
       <div className="car-row">
         {[car1, car2].map((car) => (
@@ -39,19 +38,15 @@ const CarComparison = ({ car1, car2 }) => {
         ))}
       </div>
 
-      {/* ====== Uzunluk & Yükseklik Karşılaştırması ====== */}
       <h2 className="section-title">Uzunluk ve Yükseklik Karşılaştırması</h2>
       <div className="car-side-row">
         {[car1, car2].map((car, index) => (
           <div className="side-container fade-in" key={car.id}>
-            <div style={{ position: "relative" }}>
+            <div className="side-image-wrapper">
               <div
                 className="height-bar"
                 style={{
                   height: heights[index] || 0,
-                  position: "absolute",
-                  bottom: 0,
-                  left: -12,
                 }}
               >
                 <span>{car.height_mm} mm</span>
@@ -67,12 +62,12 @@ const CarComparison = ({ car1, car2 }) => {
                   display: "block",
                 }}
               />
-            </div>
-            <div
-              className="ruler"
-              style={{ width: car.length_mm * SCALE_LENGTH }}
-            >
-              {car.length_mm} mm
+              <div
+                className="ruler"
+                style={{ width: car.length_mm * SCALE_LENGTH }}
+              >
+                {car.length_mm} mm
+              </div>
             </div>
             <div className="label">{car.brand} {car.model}</div>
           </div>
