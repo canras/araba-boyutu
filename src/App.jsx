@@ -47,7 +47,7 @@ export default function App() {
       <img src={logo} alt="Logo" className="sticky-logo" />
       <ThemeToggle />
       <div className="container">
-        <h1 className="title">Araç Boyutları Karşılaştır</h1>
+        <h1 className="title">Compare Car Sizes</h1>
 
         <div className="selectors">
           <select
