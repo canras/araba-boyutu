@@ -1,5 +1,6 @@
 import React from "react";
 import "./App.css";
+import CarSimulator from "./CarSimulator";
 
 const CarCard = ({ car, opponent }) => {
   if (!opponent) return null;
@@ -94,18 +95,22 @@ const CarComparison = ({ car1, car2 }) => {
   }
 
   return (
-    <div className="comparison-container flex flex-col xl:flex-row justify-center items-stretch gap-12 relative mt-16 fade-in px-4">
-      <div className="w-full xl:w-1/2 flex">
-         <CarCard car={car1} opponent={car2} />
-      </div>
+    <div className="w-full flex flex-col fade-in">
+      <CarSimulator car1={car1} car2={car2} />
       
-      {/* VS Badge */}
-      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-20 h-20 bg-gradient-to-br from-blue-600 to-purple-800 rounded-full flex items-center justify-center text-white font-black text-2xl shadow-[0_0_40px_rgba(59,130,246,0.8)] z-20 border-4 border-slate-900 ring-2 ring-white/10 hidden xl:flex">
-        VS
-      </div>
+      <div className="comparison-container flex flex-col xl:flex-row justify-center items-stretch gap-12 relative mt-4 px-4">
+        <div className="w-full xl:w-1/2 flex">
+           <CarCard car={car1} opponent={car2} />
+        </div>
+        
+        {/* VS Badge */}
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-20 h-20 bg-gradient-to-br from-blue-600 to-purple-800 rounded-full flex items-center justify-center text-white font-black text-2xl shadow-[0_0_40px_rgba(59,130,246,0.8)] z-20 border-4 border-slate-900 ring-2 ring-white/10 hidden xl:flex">
+          VS
+        </div>
 
-      <div className="w-full xl:w-1/2 flex">
-         <CarCard car={car2} opponent={car1} />
+        <div className="w-full xl:w-1/2 flex">
+           <CarCard car={car2} opponent={car1} />
+        </div>
       </div>
     </div>
   );
