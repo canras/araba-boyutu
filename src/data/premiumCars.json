@@ -1,0 +1,94 @@
+{
+  "brands": {
+    "Volvo": {
+      "models": {
+        "V40": {
+          "specs": [
+            {
+              "id": "volvo-v40-cc-2018",
+              "year": 2018,
+              "trim": "Cross Country 1.5 T3 Advance",
+              "dimensions": {
+                "length_mm": 4370,
+                "width_mm": 1802,
+                "height_mm": 1458,
+                "wheelbase_mm": 2646
+              },
+              "engine": {
+                "type": "1.5 T3 Geartronic",
+                "horsepower": 152,
+                "torque_nm": 250
+              },
+              "market_value": {
+                "zero_km": null,
+                "second_hand_avg": 1250000,
+                "currency": "TRY"
+              },
+              "chronic_issues": [
+                {
+                  "title": "Kavrama & Şanzıman (Geartronic)",
+                  "description": "Özellikle sert kullanımlarda ısınma ve sarsıntılı geçiş şikayetleri.",
+                  "severity": "medium"
+                },
+                {
+                  "title": "EGR Valfi",
+                  "description": "Düşük devir kullanımlarında kurum bağlayıp arıza ışığı yakması.",
+                  "severity": "low"
+                }
+              ],
+              "images": {
+                "side_transparent": "/assets/volvo-v40-side.png",
+                "front_transparent": "/assets/volvo-v40-front.png"
+              }
+            }
+          ]
+        }
+      }
+    },
+    "Cupra": {
+      "models": {
+        "Formentor": {
+          "specs": [
+            {
+              "id": "cupra-formentor-vz-2023",
+              "year": 2023,
+              "trim": "1.5 TSI DSG",
+              "dimensions": {
+                "length_mm": 4450,
+                "width_mm": 1839,
+                "height_mm": 1528,
+                "wheelbase_mm": 2680
+              },
+              "engine": {
+                "type": "1.5 TSI MHEV",
+                "horsepower": 150,
+                "torque_nm": 250
+              },
+              "market_value": {
+                "zero_km": 2150000,
+                "second_hand_avg": 1850000,
+                "currency": "TRY"
+              },
+              "chronic_issues": [
+                {
+                  "title": "Dokunmatik Ekran Donmaları",
+                  "description": "Bilgi-eğlence (infotainment) sisteminin yavaş açılması veya siyah ekranda kalması.",
+                  "severity": "high"
+                },
+                {
+                  "title": "Kabin İçi Trim Sesleri",
+                  "description": "Özellikle sunrooftan ve kapı içlerinden gelen tıkırtılar.",
+                  "severity": "low"
+                }
+              ],
+              "images": {
+                "side_transparent": "/assets/cupra_formentor_side.png",
+                "front_transparent": "/assets/cupra_formentor_front.png"
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}
