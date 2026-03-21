@@ -47,7 +47,7 @@ export default function App() {
       <img src={logo} alt="Logo" className="sticky-logo" />
       <ThemeToggle />
       <div className="container">
-        <h1 className="title">Compare Car Sizes</h1>
+        <h1 className="title">Compare</h1>
 
         <div className="selectors">
           <select
@@ -56,7 +56,7 @@ export default function App() {
               setCar1(e.target.value === "none" ? null : JSON.parse(e.target.value))
             }
           >
-            <option value="none">Araba 1 Seçin</option>
+            <option value="none">Select Car 1</option>
             {cars.map((car) => (
               <option key={car.id} value={JSON.stringify(car)}>
                 {car.brand} {car.model}
@@ -70,7 +70,7 @@ export default function App() {
               setCar2(e.target.value === "none" ? null : JSON.parse(e.target.value))
             }
           >
-            <option value="none">Araba 2 Seçin</option>
+            <option value="none">Select Car 2</option>
             {cars.map((car) => (
               <option key={car.id} value={JSON.stringify(car)}>
                 {car.brand} {car.model}
@@ -79,7 +79,7 @@ export default function App() {
           </select>
 
           <button className="clear-button" onClick={handleReset}>
-            Temizle
+            Clear
           </button>
         </div>
 
