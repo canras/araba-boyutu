@@ -10,9 +10,12 @@
               "trim": "Cross Country 1.5 T3 Advance",
               "dimensions": {
                 "length_mm": 4370,
-                "width_mm": 1802,
+                "width_technical_mm": 1802,
+                "width_mirrors_mm": 2041,
                 "height_mm": 1458,
-                "wheelbase_mm": 2646
+                "wheelbase_mm": 2646,
+                "front_overhang_mm": 914,
+                "rear_overhang_mm": 810
               },
               "engine": {
                 "type": "1.5 T3 Geartronic",
@@ -24,18 +27,26 @@
                 "second_hand_avg": 1250000,
                 "currency": "TRY"
               },
-              "chronic_issues": [
-                {
-                  "title": "Kavrama & Şanzıman (Geartronic)",
-                  "description": "Özellikle sert kullanımlarda ısınma ve sarsıntılı geçiş şikayetleri.",
-                  "severity": "medium"
-                },
-                {
-                  "title": "EGR Valfi",
-                  "description": "Düşük devir kullanımlarında kurum bağlayıp arıza ışığı yakması.",
-                  "severity": "low"
-                }
-              ],
+              "reliability": {
+                "score_out_of_10": 7.5,
+                "chronic_issues": [
+                  {
+                    "title": "Kavrama & Şanzıman (Geartronic)",
+                    "description": "Sert kullanımlarda sarsıntılı geçiş ve aşırı ısınma uyarıları.",
+                    "severity": "high"
+                  },
+                  {
+                    "title": "EGR Valfi Kirlenmesi",
+                    "description": "Düşük devir kullanımlarında kurum bağlayıp arıza ışığı yakması.",
+                    "severity": "moderate"
+                  },
+                  {
+                    "title": "Bilgi Eğlence Sistemi",
+                    "description": "Eski nesil Sensus sisteminin soğuk havalarda geç tepki vermesi.",
+                    "severity": "minor"
+                  }
+                ]
+              },
               "images": {
                 "side_transparent": "/assets/volvo-v40-side.png",
                 "front_transparent": "/assets/volvo-v40-front.png"
@@ -55,9 +66,12 @@
               "trim": "1.5 TSI DSG",
               "dimensions": {
                 "length_mm": 4450,
-                "width_mm": 1839,
+                "width_technical_mm": 1839,
+                "width_mirrors_mm": 1992,
                 "height_mm": 1528,
-                "wheelbase_mm": 2680
+                "wheelbase_mm": 2680,
+                "front_overhang_mm": 893,
+                "rear_overhang_mm": 877
               },
               "engine": {
                 "type": "1.5 TSI MHEV",
@@ -69,18 +83,26 @@
                 "second_hand_avg": 1850000,
                 "currency": "TRY"
               },
-              "chronic_issues": [
-                {
-                  "title": "Dokunmatik Ekran Donmaları",
-                  "description": "Bilgi-eğlence (infotainment) sisteminin yavaş açılması veya siyah ekranda kalması.",
-                  "severity": "high"
-                },
-                {
-                  "title": "Kabin İçi Trim Sesleri",
-                  "description": "Özellikle sunrooftan ve kapı içlerinden gelen tıkırtılar.",
-                  "severity": "low"
-                }
-              ],
+              "reliability": {
+                "score_out_of_10": 8.0,
+                "chronic_issues": [
+                  {
+                    "title": "Dokunmatik Ekran Donmaları",
+                    "description": "İnfotainment sisteminin yeniden başlatılma gereği ve kablosuz CarPlay kopmaları.",
+                    "severity": "high"
+                  },
+                  {
+                    "title": "DSG Titremesi (Düşük Hız)",
+                    "description": "Kuru kavramalı DSG'nin dur-kalk trafikte hissettirdiği mikro titremeler.",
+                    "severity": "moderate"
+                  },
+                  {
+                    "title": "Sunroof Trim Sesi",
+                    "description": "Özellikle soğuk havalarda bozuk yollarda esneme kaynaklı tıkırtılar.",
+                    "severity": "minor"
+                  }
+                ]
+              },
               "images": {
                 "side_transparent": "/assets/cupra_formentor_side.png",
                 "front_transparent": "/assets/cupra_formentor_front.png"
