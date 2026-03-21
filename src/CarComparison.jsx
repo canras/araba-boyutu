@@ -1,77 +1,62 @@
-import React, { useRef, useState } from "react";
+import React from "react";
 import "./App.css";
 
-const SCALE_WIDTH = 0.35;
-const SCALE_LENGTH = 0.18;
+const CarCard = ({ car, opponent }) => {
+  // Return early if no opponent somehow
+  if (!opponent) return null;
 
-const CarComparison = ({ car1, car2 }) => {
-  const [heights, setHeights] = useState([null, null]);
-  const imageRefs = [useRef(null), useRef(null)];
-
-  const handleImageLoad = (index) => {
-    const img = imageRefs[index].current;
-    if (img) {
-      const updated = [...heights];
-      updated[index] = img.clientHeight;
-      setHeights(updated);
-    }
+  const getHighlightClass = (val1, val2) => {
+    if (val1 > val2) return "win";
+    if (val1 < val2) return "lose";
+    return "tie";
   };
 
-  if (!car1 || !car2) return <p className="warning">Lütfen iki araba seçin.</p>;
-
   return (
-    <div className="comparison">
-      <h2 className="section-title">Genişlik Karşılaştırması</h2>
-      <div className="car-row">
-        {[car1, car2].map((car) => (
-          <div className="car-box fade-in" key={car.id}>
-            <img
-              src={car.front_image}
-              alt="front"
-              style={{ width: car.width_mm * SCALE_WIDTH }}
-            />
-            <div className="ruler" style={{ width: car.width_mm * SCALE_WIDTH }}>
-              {car.width_mm} mm
-            </div>
-            <div className="label">{car.brand} {car.model}</div>
-          </div>
-        ))}
+    <div className="premium-card fade-in">
+      <h2 className="car-title">
+        {car.brand} {car.model}
+      </h2>
+
+      <div className="visuals">
+        <div className="visual-box">
+          <img src={car.side_image} alt="side view" />
+          <span className="visual-label">Side View</span>
+        </div>
+        <div className="visual-box">
+          <img src={car.front_image} alt="front view" style={{ maxHeight: '100px' }} />
+          <span className="visual-label">Front View</span>
+        </div>
       </div>
 
-      <h2 className="section-title">Uzunluk ve Yükseklik Karşılaştırması</h2>
-      <div className="car-side-row">
-        {[car1, car2].map((car, index) => (
-          <div className="side-container fade-in" key={car.id}>
-            <div className="side-image-wrapper">
-              <div
-                className="height-bar"
-                style={{
-                  height: heights[index] || 0,
-                }}
-              >
-                <span>{car.height_mm} mm</span>
-              </div>
-              <img
-                ref={imageRefs[index]}
-                src={car.side_image}
-                alt="side"
-                onLoad={() => handleImageLoad(index)}
-                style={{
-                  width: car.length_mm * SCALE_LENGTH,
-                  height: "auto",
-                  display: "block",
-                }}
-              />
-              <div
-                className="ruler"
-                style={{ width: car.length_mm * SCALE_LENGTH }}
-              >
-                {car.length_mm} mm
-              </div>
-            </div>
-            <div className="label">{car.brand} {car.model}</div>
-          </div>
-        ))}
+      <div className="specs-container">
+        <div className={`spec-row ${getHighlightClass(car.length_mm, opponent.length_mm)}`}>
+          <span className="spec-name">Length</span>
+          <span className="spec-value">{car.length_mm} mm</span>
+        </div>
+        <div className={`spec-row ${getHighlightClass(car.width_mm, opponent.width_mm)}`}>
+          <span className="spec-name">Width</span>
+          <span className="spec-value">{car.width_mm} mm</span>
+        </div>
+        <div className={`spec-row ${getHighlightClass(car.height_mm, opponent.height_mm)}`}>
+          <span className="spec-name">Height</span>
+          <span className="spec-value">{car.height_mm} mm</span>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const CarComparison = ({ car1, car2 }) => {
+  if (!car1 || !car2) {
+    return <p className="warning fade-in">Please select two cars from the dropdowns above to compare.</p>;
+  }
+
+  return (
+    <div className="comparison-container">
+      <div className="cards-wrapper">
+        <CarCard car={car1} opponent={car2} />
+        <div className="vs-badge fade-in">VS</div>
+        <CarCard car={car2} opponent={car1} />
       </div>
     </div>
   );
