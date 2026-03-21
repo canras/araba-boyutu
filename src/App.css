@@ -177,6 +177,7 @@ select:hover {
   margin-top: 0;
   background: linear-gradient(90deg, #4f9ef7, #8bb4f7);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   color: #4f9ef7; /* fallback */
 }
@@ -300,6 +301,7 @@ select:hover {
 .light .car-title {
   background: linear-gradient(90deg, #1a73e8, #4285f4);
   -webkit-background-clip: text;
+  background-clip: text;
   color: #1a73e8; /* fallback */
 }
 
@@ -365,6 +367,72 @@ select:hover {
 .clear-button:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 16px rgba(79, 158, 247, 0.6);
+}
+
+.spec-divider {
+  text-align: center;
+  margin: 15px 0 5px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #666;
+}
+
+.text-blue {
+  color: #4f9ef7 !important;
+}
+
+.guide-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.guide-block {
+  padding: 14px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.guide-block h4 {
+  margin: 0 0 6px 0;
+  font-size: 14px;
+  color: #eee;
+}
+
+.guide-block p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #aaa;
+}
+
+.guide-block.pros {
+  border-left: 3px solid #2ecc71;
+}
+
+.guide-block.cons {
+  border-left: 3px solid #e74c3c;
+}
+
+.guide-block.chronic {
+  border-left: 3px solid #f1c40f;
+  background: rgba(241, 196, 15, 0.05);
+}
+
+.light .guide-block {
+  background: rgba(0, 0, 0, 0.02);
+  border-color: rgba(0, 0, 0, 0.05);
+}
+
+.light .guide-block h4 {
+  color: #333;
+}
+
+.light .guide-block p {
+  color: #555;
 }
 
 @media (max-width: 900px) {

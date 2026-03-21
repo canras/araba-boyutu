@@ -2,7 +2,6 @@ import React from "react";
 import "./App.css";
 
 const CarCard = ({ car, opponent }) => {
-  // Return early if no opponent somehow
   if (!opponent) return null;
 
   const getHighlightClass = (val1, val2) => {
@@ -22,10 +21,12 @@ const CarCard = ({ car, opponent }) => {
           <img src={car.side_image} alt="side view" />
           <span className="visual-label">Side View</span>
         </div>
-        <div className="visual-box">
-          <img src={car.front_image} alt="front view" style={{ maxHeight: '100px' }} />
-          <span className="visual-label">Front View</span>
-        </div>
+        {car.front_image && (
+          <div className="visual-box">
+            <img src={car.front_image} alt="front view" style={{ maxHeight: '100px' }} />
+            <span className="visual-label">Front View</span>
+          </div>
+        )}
       </div>
 
       <div className="specs-container">
@@ -40,6 +41,34 @@ const CarCard = ({ car, opponent }) => {
         <div className={`spec-row ${getHighlightClass(car.height_mm, opponent.height_mm)}`}>
           <span className="spec-name">Height</span>
           <span className="spec-value">{car.height_mm} mm</span>
+        </div>
+        
+        <div className="spec-divider">Performance</div>
+
+        <div className="spec-row info-row">
+          <span className="spec-name">Engine</span>
+          <span className="spec-value text-blue">{car.engine}</span>
+        </div>
+        <div className={`spec-row ${getHighlightClass(car.horsepower, opponent.horsepower)}`}>
+          <span className="spec-name">Horsepower</span>
+          <span className="spec-value">{car.horsepower} HP</span>
+        </div>
+      </div>
+
+      <div className="guide-section">
+        <div className="guide-block pros">
+          <h4>✅ Pros</h4>
+          <p>{car.pros}</p>
+        </div>
+        
+        <div className="guide-block cons">
+          <h4>❌ Cons</h4>
+          <p>{car.cons}</p>
+        </div>
+        
+        <div className="guide-block chronic">
+          <h4>⚠️ Chronic Issues</h4>
+          <p>{car.chronic_issues}</p>
         </div>
       </div>
     </div>
